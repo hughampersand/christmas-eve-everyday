@@ -8,7 +8,7 @@
     body {
       font-family: 'Mountains of Christmas', cursive, sans-serif;
       text-align: center;
-      margin: 0;
+      margin: 10;
       height: 100vh; /* Set the body height to the full viewport height */
       display: flex;
       flex-direction: column;
@@ -45,10 +45,12 @@
 
   <h1>🎄 Christmas Eve Forever 🎄</h1>
 
-  <h2 id="currentDate"></h2>
-  <h2 id="daysUntilChristmas"></h2>
+  <p id="christmasStatus"></p> 
+  
+  <h3 id="currentDate"></h3>
+  <h3 id="daysUntilChristmas"></h3>
 
-  <p id="christmasStatus"></p>
+
 
   <div id="spinningTree">⭐️</div>
 
@@ -76,6 +78,9 @@
       var currentDate = new Date();
       var daysLeft = daysUntilChristmas();
 
+      currentDateElement.textContent = "Current Date: " + currentDate.toDateString();
+      daysUntilChristmasElement.textContent = "Days Until Christmas: " + daysLeft;
+      
       if (daysLeft === 0) {
         christmasStatusElement.innerHTML = "<strong>🎉 It's Christmas! 🎉</strong>";
       } else {
@@ -83,9 +88,6 @@
         christmasStatusElement.innerHTML = "It is Christmas" + eveString;
       }
 
-    currentDateElement.textContent = "Current Date: " + currentDate.toDateString();
-    daysUntilChristmasElement.textContent = "Days Until Christmas: " + daysLeft;
-      
     }
 
     // Initial update
