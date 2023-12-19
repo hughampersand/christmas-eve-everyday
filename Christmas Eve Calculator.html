@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Eve Calculator</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      margin: 50px;
+      background-color: #e8f7ff; /* Light Blue background */
+      overflow: hidden; /* Prevents the Christmas tree from overflowing the body */
+    }
+    h1 {
+      color: #ff5733; /* Reddish-Orange */
+    }
+    h2 {
+      color: #006400; /* Dark Green */
+    }
+    p {
+      font-size: 1.5em;
+      color: #b22222; /* Fire Brick Red */
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    #spinningTree {
+      font-size: 2em;
+      margin-top: 20px;
+      animation: spin 5s infinite linear; /* Spinning animation */
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎄 Christmas Eve Calculator 🎄</h1>
+
+  <h2 id="currentDate"></h2>
+  <h2 id="daysUntilChristmas"></h2>
+
+  <p id="christmasStatus"></p>
+
+  <div id="spinningTree">⭐️</div>
+
+  <script>
+    // Function to calculate days until Christmas
+    function daysUntilChristmas() {
+      var currentDate = new Date();
+      var christmasDate = new Date(currentDate.getFullYear(), 11, 25);
+      
+      if (currentDate > christmasDate) {
+        christmasDate.setFullYear(christmasDate.getFullYear() + 1);
+      }
+
+      var daysLeft = Math.ceil((christmasDate - currentDate) / (1000 * 60 * 60 * 24));
+
+      return daysLeft;
+    }
+
+    // Function to update the HTML elements
+    function updateElements() {
+      var currentDateElement = document.getElementById("currentDate");
+      var daysUntilChristmasElement = document.getElementById("daysUntilChristmas");
+      var christmasStatusElement = document.getElementById("christmasStatus");
+
+      var currentDate = new Date();
+      var daysLeft = daysUntilChristmas();
+
+      currentDateElement.textContent = "📅 Current Date: " + currentDate.toDateString();
+      daysUntilChristmasElement.textContent = "Days Until Christmas: " + daysLeft;
+
+      if (daysLeft === 0) {
+        christmasStatusElement.innerHTML = "<strong>🎉 It is Christmas! 🎉</strong>";
+      } else {
+        var eveString = " Eve ".repeat(daysLeft);
+        christmasStatusElement.innerHTML = "It is Christmas" + eveString;
+      }
+    }
+
+    // Initial update
+    updateElements();
+
+    // Update every second (you can adjust this interval based on your preference)
+    setInterval(updateElements, 1000);
+  </script>
+
+</body>
+</html>
