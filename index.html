@@ -76,15 +76,16 @@
       var currentDate = new Date();
       var daysLeft = daysUntilChristmas();
 
-      currentDateElement.textContent = "Current Date: " + currentDate.toDateString();
-      daysUntilChristmasElement.textContent = "Days Until Christmas: " + daysLeft;
-
       if (daysLeft === 0) {
         christmasStatusElement.innerHTML = "<strong>🎉 It's Christmas! 🎉</strong>";
       } else {
         var eveString = " Eve ".repeat(daysLeft);
         christmasStatusElement.innerHTML = "It is Christmas" + eveString;
       }
+
+    currentDateElement.textContent = "Current Date: " + currentDate.toDateString();
+    daysUntilChristmasElement.textContent = "Days Until Christmas: " + daysLeft;
+      
     }
 
     // Initial update
