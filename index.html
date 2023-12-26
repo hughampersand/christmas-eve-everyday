@@ -7,15 +7,16 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🎄</text></svg>">
   <style>
     body {
-      font-family: 'Apple Chancery', serif;
-      text-align: center;
-      margin: 20;
-      height: 250vh; /* Set the body height to the full viewport height */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: #e8f7ff; /* Light Blue background */
+  font-family: 'Apple Chancery', serif;
+  text-align: center;
+  margin: 20;
+  min-height: 100vh; /* Set the minimum body height to the full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e8f7ff; /* Light Blue background */
+  overflow: auto; /* Add overflow property to enable scrolling if content exceeds viewport */
     }
     h1 {
       color: #ff5733; /* Reddish-Orange */
